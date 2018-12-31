@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const inversify_1 = require("inversify");
+require("reflect-metadata");
 const services_1 = require("../../areas/services");
 const implementation_1 = require("../../areas/services/implementation");
 const servants_1 = require("../../areas/services/servants");

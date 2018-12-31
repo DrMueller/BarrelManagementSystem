@@ -1,16 +1,16 @@
 import { Container } from 'inversify';
+import 'reflect-metadata';
 
 import { BarrelServiceName, IBarrelService } from '../../areas/services';
 import { BarrelService } from '../../areas/services/implementation';
 import {
-  BarrelFileRepositoryServiceName, GlobFactoryServiceName,
-  IBarrelFileRepositoryService, IGlobFactoryServant,
-  ITypeScriptFilesSearchingServant, TypeScriptFilesSearchingServantName, IFolderServant, FolderServantName
+  BarrelFileRepositoryServiceName, FolderServantName, GlobFactoryServiceName,
+  IBarrelFileRepositoryService, IFolderServant, IGlobFactoryServant,
+  ITypeScriptFilesSearchingServant, TypeScriptFilesSearchingServantName
 } from '../../areas/services/servants';
 import {
-  BarrelFileRepositoryService, GlobFactoryServant, TypeScriptFilesSearchingServant, FolderServant
+  BarrelFileRepositoryService, FolderServant, GlobFactoryServant, TypeScriptFilesSearchingServant
 } from '../../areas/services/servants/implementation';
-
 import { ServiceLocatorService } from './service-locator.service';
 
 export class DependencyInjectionInitializationService {

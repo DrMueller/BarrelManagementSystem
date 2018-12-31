@@ -6,8 +6,8 @@
   "publisher": "DrMueller",
   "homepage": "https://github.com/DrMueller/BarrelManagementSystem",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/DrMueller/BarrelManagementSystem"
+    "type": "git",
+    "url": "https://github.com/DrMueller/BarrelManagementSystem"
   },
   "engines": {
     "vscode": "^1.30.1"
@@ -54,13 +54,14 @@
     "execute-tests": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^3.1.4",
-    "tslint": "^5.8.0",
-    "@types/node": "^8.10.25",
-    "@types/mocha": "^2.2.42"
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.39",
+    "tslint": "^5.12.0",
+    "typescript": "^3.1.4"
   },
   "dependencies": {
     "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.12",
     "vsce": "1.54.0",
     "vscode": "1.1.26"
   }
