@@ -13,8 +13,7 @@ export class ExportEntry {
   }
 
   private static getFileName(filePath: string): string {
-    let localFileName = filePath.replace(/^.*[\\\/]/, '');
-    return localFileName;
+    return filePath.replace(/^.*[\\\/]/, '');
   }
 
   public get exportObject(): string {
@@ -32,6 +31,6 @@ export class ExportEntry {
   public get isReExport(): boolean {
     return ExportEntry
       .getFileName(this._exportStatement)
-      .indexOf('.') == -1;
+      .indexOf('.') === -1;
   }
 }

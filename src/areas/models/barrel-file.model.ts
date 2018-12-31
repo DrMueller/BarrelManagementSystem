@@ -8,7 +8,9 @@ export class BarrelFile {
   }
 
   public alignExportEntries(exportEntries: ExportEntry[]): ExportEntryAlignmentResult {
-    const exportEntriesToAdd = exportEntries.filter(entry => !this._exportEntries.some(existingEntry => existingEntry.exportObject === entry.exportObject))
+    const exportEntriesToAdd = exportEntries
+      .filter(entry => !this._exportEntries.some(existingEntry => existingEntry.exportObject === entry.exportObject));
+
     this._exportEntries.push(...exportEntriesToAdd);
 
     const exportEntriesToDelete = this.
