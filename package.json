@@ -1,0 +1,56 @@
+{
+  "name": "drmueller-bms",
+  "displayName": "BarrelManagementSystem",
+  "description": "DrMuellers little Barrel Management System",
+  "version": "0.0.1",
+  "publisher": "DrMueller",
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.alignBarrelInSelectedDirecory",
+        "title": "Align barrel in selected directory"
+      },
+      {
+        "command": "extension.alignBarrelsInAllDirectories",
+        "title": "Align barrels in all directories"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "extension.alignBarrelInSelectedDirecory",
+          "when": "view == commitViewProvider && viewItem == file"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "publish": "vsce publish",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+  },
+  "devDependencies": {
+    "typescript": "^3.1.4",
+    "vscode": "^1.1.25",
+    "tslint": "^5.8.0",
+    "@types/node": "^8.10.25",
+    "@types/mocha": "^2.2.42"
+  },
+  "dependencies": {
+    "inversify": "^5.0.1"
+  }
+}
