@@ -1,65 +1,64 @@
-# drmueller-bms README
+# TS-Arrange2
+A plugin for Typescript, which arranges elements within a class.
 
-This is the README for your extension "drmueller-bms". After writing up a brief description, we recommend including the following sections.
+## Installation
+On the extensions tab, search for *TS-Arrange2* and install it.
 
 ## Features
+### Genal
+This plugin arranges elements within a class by the following attributes attributes:
+- Visibility
+- Location (Static / Instance)
+- Kind (Property, Field, Constructor)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Sorting algorithm
+- The sorting of the blocks is determinated by the TSLint rule __member-ordering__
+- Within each element block, the members are ordered by their name
+- Elements, which can't be associated, are set at the end of the class
 
-For example if there is an image subfolder under your extension project workspace:
+## Limitations
+The logic expects a member-ordering configuration with the exact declaration, for example:
 
-\!\[feature X\]\(images/feature-x.png\)
+```
+"member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "public-instance-field",
+          "protected-static-field",
+          "protected-instance-field",
+          "private-static-field",
+          "private-instance-field",
+          "public-constructor",
+          "protected-constructor",
+          "private-constructor",
+          "public-static-method",
+          "public-instance-method",
+          "protected-static-method",
+          "protected-instance-method",
+          "private-static-method",
+          "private-instance-method"
+        ]
+      }
+    ],
+```
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
+### Shortcut
+1. Navigate to the desired Typescript Class
+1. Use __ctrl+shift+a__ to invoke the command
 
-## Requirements
+### Command Palette
+1. Navigate to the desired Typescript Class
+1. In the command palette(ctrl+shift+p), enter *Arrange File*
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Contributing
+If you have any questions, fixes or enhancements, please create a pull request or an issue.
+[Github](https://github.com/DrMueller/TS-Arrange2)
 
-## Extension Settings
+## History
+Please see the changelog.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## License
+This software is released under [MIT License](http://www.opensource.org/licenses/mit-license.php)
