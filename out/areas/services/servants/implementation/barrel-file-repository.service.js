@@ -15,7 +15,7 @@ let BarrelFileRepositoryService = class BarrelFileRepositoryService {
             const relativeBarrelFilePath = this.globFactory.createRelativeGlob(directoryPath, models_1.BarrelFile.FileName);
             const barrelFiles = yield vscode.workspace.findFiles(relativeBarrelFilePath);
             let barrelFileEntryLines;
-            if (barrelFiles.length === 0) {
+            if (barrelFiles.length === 0) { // No Barrel file found
                 barrelFileEntryLines = [];
             }
             else {

@@ -17,7 +17,7 @@ export class BarrelFileRepositoryService implements IBarrelFileRepositoryService
     const barrelFiles = await vscode.workspace.findFiles(relativeBarrelFilePath);
 
     let barrelFileEntryLines: string[];
-    if (barrelFiles.length === 0) {
+    if (barrelFiles.length === 0) { // No Barrel file found
       barrelFileEntryLines = [];
     } else {
       barrelFileEntryLines = await this.getTextLinesAsync(barrelFiles[0].fsPath);
