@@ -63,6 +63,7 @@
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.12",
     "vsce": "1.54.0",
+    "@drmueller/language-extensions": "2.1.6",
     "vscode": "1.1.26"
   }
 }

@@ -1,3 +1,5 @@
+import { ArrayExtensions } from '@drmueller/language-extensions';
+
 import { ExportEntryAlignmentResult } from './';
 import { ExportEntry } from './export-entry.model';
 
@@ -8,15 +10,18 @@ export class BarrelFile {
   }
 
   public alignExportEntries(exportEntries: ExportEntry[]): ExportEntryAlignmentResult {
-    const exportEntriesToAdd = exportEntries
-      .filter(entry => !this._exportEntries.some(existingEntry => existingEntry.exportObject === entry.exportObject));
+    const exportEntriesToAdd = ArrayExtensions.getItemsNotInOtherArray(
+      exportEntries,
+      this._exportEntries,
+      (a1, a2) => a1.exportObject === a2.exportObject);
 
     this._exportEntries.push(...exportEntriesToAdd);
 
-    const exportEntriesToDelete = this.
-      _exportEntries
-      .filter(entry => !entry.isReExport)
-      .filter(existingEntry => !exportEntries.some(entry => existingEntry.exportObject === entry.exportObject));
+    const nonReExportEntries = this._exportEntries.filter(entry => !entry.isReExport);
+    const exportEntriesToDelete = ArrayExtensions.getItemsNotInOtherArray(
+      nonReExportEntries,
+      exportEntries,
+      (a1, a2) => a1.exportObject === a2.exportObject);
 
     exportEntriesToDelete.forEach(entry => {
       this._exportEntries.splice(this._exportEntries.indexOf(entry), 1);

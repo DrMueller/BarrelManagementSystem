@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const language_extensions_1 = require("@drmueller/language-extensions");
 const _1 = require("./");
 class BarrelFile {
     constructor(_directoryPath, _exportEntries) {
@@ -7,13 +8,10 @@ class BarrelFile {
         this._exportEntries = _exportEntries;
     }
     alignExportEntries(exportEntries) {
-        const exportEntriesToAdd = exportEntries
-            .filter(entry => !this._exportEntries.some(existingEntry => existingEntry.exportObject === entry.exportObject));
+        const exportEntriesToAdd = language_extensions_1.ArrayExtensions.getItemsNotInOtherArray(exportEntries, this._exportEntries, (a1, a2) => a1.exportObject === a2.exportObject);
         this._exportEntries.push(...exportEntriesToAdd);
-        const exportEntriesToDelete = this.
-            _exportEntries
-            .filter(entry => !entry.isReExport)
-            .filter(existingEntry => !exportEntries.some(entry => existingEntry.exportObject === entry.exportObject));
+        const nonReExportEntries = this._exportEntries.filter(entry => !entry.isReExport);
+        const exportEntriesToDelete = language_extensions_1.ArrayExtensions.getItemsNotInOtherArray(nonReExportEntries, exportEntries, (a1, a2) => a1.exportObject === a2.exportObject);
         exportEntriesToDelete.forEach(entry => {
             this._exportEntries.splice(this._exportEntries.indexOf(entry), 1);
         });
