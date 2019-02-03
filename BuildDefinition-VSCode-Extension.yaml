@@ -6,8 +6,6 @@ queue:
   name: Hosted VS2017
   demands: npm
 
-variables:
-  VscePublishToken: 'ewy6oveqch7ep6afad3i3rzwwvlpgegad7xpdsubadfzymd74wjq'
 steps:
 - task: Npm@1
   displayName: 'Install'
@@ -72,6 +70,6 @@ steps:
 
     verbose: false
 
-    customCommand: 'run vsce-publish -- -p $(VscePublishToken)'
+    customCommand: 'run vsce-publish -- -p $(VsceToken)'
 
 
