@@ -7,7 +7,7 @@ queue:
   demands: npm
 
 variables:
-  VscePublishToken: 'kiuoe66fcq54xg4na62gybbtgur7fswkfdqxksh6ku5yt54ss7nq'
+  VscePublishToken: 'ewy6oveqch7ep6afad3i3rzwwvlpgegad7xpdsubadfzymd74wjq'
 steps:
 - task: Npm@1
   displayName: 'Install'
