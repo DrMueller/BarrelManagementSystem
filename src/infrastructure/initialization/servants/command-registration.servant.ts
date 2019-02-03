@@ -5,7 +5,6 @@ import { IBarrelService, BarrelServiceName } from '../../../areas/services';
 export class CommandRegistrationServant {
   public static registerCommands(context: vscode.ExtensionContext): void {
     CommandRegistrationServant.registerAlignBarrelInSelectedDirectory(context);
-    CommandRegistrationServant.registerAlignAllBarrels(context);
   }
 
   private static registerAlignBarrelInSelectedDirectory(context: vscode.ExtensionContext): void {
