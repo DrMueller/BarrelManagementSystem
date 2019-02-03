@@ -28,10 +28,6 @@
       {
         "command": "extension.alignBarrelInSelectedDirecory",
         "title": "Align barrel in selected directory"
-      },
-      {
-        "command": "extension.alignBarrelsInAllDirectories",
-        "title": "Align barrels in all directories"
       }
     ],
     "menus": {

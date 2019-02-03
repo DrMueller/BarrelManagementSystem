@@ -3,16 +3,15 @@ import { inject, injectable } from 'inversify';
 import { ExportEntry } from '../../models';
 import { IBarrelService } from '../barrel-service.interface';
 import {
-  BarrelFileRepositoryServiceName, FolderServantName, IBarrelFileRepositoryService,
-  IFolderServant, ITypeScriptFilesSearchingServant, TypeScriptFilesSearchingServantName
+  BarrelFileRepositoryServiceName, IBarrelFileRepositoryService,
+ ITypeScriptFilesSearchingServant, TypeScriptFilesSearchingServantName
 } from '../servants';
 
 @injectable()
 export class BarrelService implements IBarrelService {
   public constructor(
     @inject(BarrelFileRepositoryServiceName) private barrelFileReposistory: IBarrelFileRepositoryService,
-    @inject(TypeScriptFilesSearchingServantName) private fileServant: ITypeScriptFilesSearchingServant,
-    @inject(FolderServantName) private folderServant: IFolderServant
+    @inject(TypeScriptFilesSearchingServantName) private fileServant: ITypeScriptFilesSearchingServant
   ) { }
 
   public async alignBarrelInDirecoryAsync(directoryPath: string): Promise<void> {
@@ -25,11 +24,5 @@ export class BarrelService implements IBarrelService {
     if (alignmentResult.itemsChanged) {
       await this.barrelFileReposistory.saveAsync(barrelFile);
     }
-  }
-
-  public async alignBarrelsInAllDirectoriesAsync(): Promise<void> {
-    const subFolders = this.folderServant.getFoldersToCheckForBarrels();
-    const allPromises = subFolders.map(folderPath => this.alignBarrelInDirecoryAsync(folderPath));
-    await allPromises;
   }
 }

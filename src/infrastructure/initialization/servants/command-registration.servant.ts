@@ -25,17 +25,4 @@ export class CommandRegistrationServant {
 
     context.subscriptions.push(arrangeFileCommand);
   }
-
-  private static registerAlignAllBarrels(context: vscode.ExtensionContext): void {
-    const arrangeFileCommand = vscode.commands.registerCommand('extension.alignBarrelsInAllDirectories', () => {
-      try {
-        const fileArrangementService = ServiceLocatorService.resolveService<IBarrelService>(BarrelServiceName);
-        fileArrangementService.alignBarrelsInAllDirectoriesAsync();
-      } catch (err) {
-        vscode.window.showErrorMessage(err.message);
-      }
-    });
-
-    context.subscriptions.push(arrangeFileCommand);
-  }
 }
