@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import { inject, injectable } from 'inversify';
 import * as vscode from 'vscode';
 
@@ -47,6 +48,6 @@ export class BarrelFileRepositoryService implements IBarrelFileRepositoryService
   }
 
   private createBarrelFilePath(directoryPath: string): string {
-    return directoryPath + '\\' + BarrelFile.FileName;
+    return directoryPath + path.sep + BarrelFile.FileName;
   }
 }
